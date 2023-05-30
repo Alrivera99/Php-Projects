@@ -22,4 +22,11 @@ Route::get('/register', [RegisterController::class, 'crear'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
 
-Route::get('/muro', [\App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'store']);
+
+Route::post('/logout', [\App\Http\Controllers\LogoutController::class, 'store'])->name('logout');
+
+
+Route::get('/{user:username}', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [\App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
